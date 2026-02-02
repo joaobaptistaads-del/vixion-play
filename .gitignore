@@ -10,3 +10,11 @@ dist/
 build/
 coverage/
 .env
+.venv/
+venv/
+*.py
+deploy.py
+check_deployment.py
+.vscode/
+*.swp
+*.swo
