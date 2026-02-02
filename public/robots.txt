@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Update the Sitemap URL to your production domain or set NEXT_PUBLIC_SITE_URL
+Sitemap: /sitemap.xml
+
+# Crawl-delay: 10

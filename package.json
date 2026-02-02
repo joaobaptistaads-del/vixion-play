@@ -1,0 +1,39 @@
+{
+  "name": "vixion-play",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "test:e2e": "playwright test",
+    "ci:e2e": "start-server-and-test 'npm run dev' http://localhost:3000 'npx playwright test --forbid-only'"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^4.35.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^10.12.16",
+    "fuse.js": "^6.6.2",
+    "hls.js": "^1.5.0",
+    "next": "14.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "optionalDependencies": {
+    "next-auth": "^4.23.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.1",
+    "@types/node": "25.2.0",
+    "@types/react": "19.2.10",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.50.0",
+    "eslint-config-next": "^14.0.0",
+    "playwright": "^1.58.1",
+    "postcss": "^8.4.24",
+    "start-server-and-test": "^1.15.4",
+    "tailwindcss": "^3.4.6",
+    "typescript": "5.9.3"
+  }
+}
