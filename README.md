@@ -2,14 +2,70 @@
 
 Projeto front-end Next.js (App Router) minimal para o Vixion Play — streaming com player HLS, Tailwind e TypeScript.
 
-## Quick start
+## 🚀 Deploy Rápido no Vercel
+
+### Opção 1: Deploy via GitHub (Recomendado)
+
+1. **Faça push do código para o GitHub** (se ainda não fez)
+   ```bash
+   git push origin main
+   ```
+
+2. **Conecte ao Vercel**
+   - Acesse [vercel.com/new](https://vercel.com/new)
+   - Importe o repositório GitHub
+   - Clique em **Deploy**
+
+3. **Configure as variáveis de ambiente**
+   - Vá para **Settings** > **Environment Variables**
+   - Adicione as seguintes variáveis:
+     ```
+     SUPABASE_URL=https://[seu-projeto].supabase.co
+     SUPABASE_ANON_KEY=[sua-chave-anon]
+     NEXTAUTH_SECRET=[gere-com: openssl rand -base64 32]
+     NEXTAUTH_URL=https://[seu-app].vercel.app
+     NEXT_PUBLIC_SITE_URL=https://[seu-app].vercel.app
+     ```
+
+4. **Redeploy**
+   - Vá para **Deployments**
+   - Clique nos três pontos do último deploy
+   - Selecione **Redeploy**
+
+✅ **Pronto!** Seu app estará disponível em: `https://[seu-app].vercel.app`
+
+### Opção 2: Deploy via CLI
+
+```bash
+# Instalar Vercel CLI
+npm i -g vercel
+
+# Login
+vercel login
+
+# Deploy
+vercel --prod
+```
+
+## 🗄️ Configurar Banco de Dados Supabase
+
+Antes de usar a funcionalidade de "Adicionar à Lista", configure o Supabase:
+
+1. Acesse [supabase.com](https://supabase.com) e crie um projeto
+2. Vá para **SQL Editor** e execute o script em `/supabase/schema.sql`
+3. Obtenha as credenciais em **Settings** > **API**
+4. Configure as variáveis de ambiente (veja acima)
+
+📖 **Guia completo:** Ver `/supabase/README.md`
+
+## 🏃 Quick start local
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Testar localmente
+## 🧪 Testar localmente
 
 Para executar os testes E2E localmente:
 
