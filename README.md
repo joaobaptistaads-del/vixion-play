@@ -25,7 +25,14 @@ npm run dev        # Em um terminal
 npm run test:e2e   # Em outro terminal
 ```
 
-**Nota:** O teste completo de "adicionar à lista" requer configuração do Supabase. Para testar a interface sem backend, use os testes básicos de navegação.
+**Testes disponíveis:**
+- ✅ `navigation.spec.ts` - Testes de navegação (funcionam sem Supabase)
+- ⚠️ `add-to-list.spec.ts` - Teste de adicionar à lista (requer Supabase)
+
+**Para pular testes que requerem Supabase:**
+```bash
+SKIP_SUPABASE_TESTS=true npm run test:e2e
+```
 
 ## Principais pontos
 - Next.js (App Router) com TypeScript
