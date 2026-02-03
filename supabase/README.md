@@ -112,11 +112,34 @@ Para verificar se está funcionando:
 
 Para um ambiente de produção real:
 
-1. **Autenticação Supabase**: Integrar Supabase Auth em vez de NextAuth
-2. **RLS mais restritivo**: Usar `auth.uid()` para políticas mais seguras
-3. **Storage**: Adicionar Supabase Storage para uploads de imagens
-4. **Edge Functions**: Criar funções serverless para lógica complexa
-5. **Realtime**: Ativar realtime subscriptions para atualizações ao vivo
+1. **Políticas RLS mais seguras**: 
+   - O `schema.sql` usa políticas simplificadas para demo/desenvolvimento
+   - Para produção, veja `schema-production.sql` com políticas mais restritivas
+   - ⚠️ **Importante**: As políticas de produção requerem Supabase Auth
+   - Com NextAuth (setup atual), a segurança é gerenciada nas API routes
+
+2. **Autenticação Supabase**: 
+   - Integrar Supabase Auth em vez de NextAuth
+   - Permite usar `auth.uid()` e `auth.email()` nas políticas RLS
+
+3. **Storage**: 
+   - Adicionar Supabase Storage para uploads de imagens
+   - Posters, thumbnails, etc.
+
+4. **Edge Functions**: 
+   - Criar funções serverless para lógica complexa
+   - Processamento de dados, webhooks, etc.
+
+5. **Realtime**: 
+   - Ativar realtime subscriptions para atualizações ao vivo
+   - Notificações de novos conteúdos, etc.
+
+## ⚠️ Nota de Segurança
+
+- O `schema.sql` padrão usa políticas RLS simplificadas (`USING (true)`)
+- Isso é aceitável para demo/desenvolvimento
+- A segurança real é gerenciada nas API routes do Next.js via NextAuth
+- Para produção com Supabase Auth, use `schema-production.sql`
 
 ## Recursos Úteis
 

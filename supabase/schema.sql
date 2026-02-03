@@ -29,37 +29,43 @@ ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.my_lists ENABLE ROW LEVEL SECURITY;
 
 -- RLS Policies for users table
+-- NOTE: These policies are simplified for demo/development
+-- For PRODUCTION, replace with more restrictive policies
+
 -- Users can read their own data
 CREATE POLICY "Users can view own data" ON public.users
   FOR SELECT
-  USING (true); -- Allow reading for simplicity in demo
+  USING (true); -- PRODUCTION: Use auth.uid()::text = id::text OR email = auth.email()
 
 -- Users can insert their own data
 CREATE POLICY "Users can insert own data" ON public.users
   FOR INSERT
-  WITH CHECK (true); -- Allow insert for demo/development
+  WITH CHECK (true); -- PRODUCTION: Use auth.email() = email
 
 -- Users can update their own data
 CREATE POLICY "Users can update own data" ON public.users
   FOR UPDATE
-  USING (true)
-  WITH CHECK (true);
+  USING (true) -- PRODUCTION: Use auth.email() = email
+  WITH CHECK (true); -- PRODUCTION: Use auth.email() = email
 
 -- RLS Policies for my_lists table
+-- NOTE: These policies are simplified for demo/development
+-- For PRODUCTION, replace with more restrictive policies
+
 -- Users can view their own lists
 CREATE POLICY "Users can view own lists" ON public.my_lists
   FOR SELECT
-  USING (true); -- Simplified for demo - in production, should check auth.uid()
+  USING (true); -- PRODUCTION: Use auth.email() = user_email
 
 -- Users can insert to their own lists
 CREATE POLICY "Users can insert to own lists" ON public.my_lists
   FOR INSERT
-  WITH CHECK (true); -- Simplified for demo
+  WITH CHECK (true); -- PRODUCTION: Use auth.email() = user_email
 
 -- Users can delete from their own lists
 CREATE POLICY "Users can delete from own lists" ON public.my_lists
   FOR DELETE
-  USING (true); -- Simplified for demo
+  USING (true); -- PRODUCTION: Use auth.email() = user_email
 
 -- Create function to update updated_at timestamp
 CREATE OR REPLACE FUNCTION update_updated_at_column()
