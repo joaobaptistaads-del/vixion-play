@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import AuthProvider from '@/components/AuthProvider'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
@@ -50,7 +51,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <div className="min-h-screen">{children}</div>
+        <AuthProvider>
+          <div className="min-h-screen">{children}</div>
+        </AuthProvider>
       </body>
     </html>
   )
