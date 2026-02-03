@@ -18,3 +18,8 @@ check_deployment.py
 .vscode/
 *.swp
 *.swo
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/

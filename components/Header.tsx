@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Button from './ui/Button'
+import Input from './ui/Input'
 
 export default function Header() {
   return (

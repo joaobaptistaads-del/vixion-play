@@ -2,6 +2,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import Header from '../components/Header'
 import FeaturedCarousel from '../components/FeaturedCarousel'
+import RowStrip from '../components/RowStrip'
 
 export default function Home() {
   return (

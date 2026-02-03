@@ -12,7 +12,7 @@ export default function SignInPage() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     const res = await signIn('credentials', { redirect: false, email, password })
-    if (res?.ok) router.push('/profile')
+    if (res?.ok) router.push('/')
   }
 
   return (
